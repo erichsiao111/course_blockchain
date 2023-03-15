@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/course_blockchain/static/css/main.3ff36111.css",
+    "main.js": "/course_blockchain/static/js/main.590a94d4.js",
+    "static/js/787.ba3f3c60.chunk.js": "/course_blockchain/static/js/787.ba3f3c60.chunk.js",
+    "index.html": "/course_blockchain/index.html",
+    "main.3ff36111.css.map": "/course_blockchain/static/css/main.3ff36111.css.map",
+    "main.590a94d4.js.map": "/course_blockchain/static/js/main.590a94d4.js.map",
+    "787.ba3f3c60.chunk.js.map": "/course_blockchain/static/js/787.ba3f3c60.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3ff36111.css",
+    "static/js/main.590a94d4.js"
+  ]
+}
