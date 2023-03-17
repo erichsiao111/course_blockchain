@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/course_blockchain/static/css/main.3ff36111.css",
-    "main.js": "/course_blockchain/static/js/main.a8aac4c8.js",
+    "main.js": "/course_blockchain/static/js/main.a03806d2.js",
     "static/js/787.ba3f3c60.chunk.js": "/course_blockchain/static/js/787.ba3f3c60.chunk.js",
     "static/media/photo1.png": "/course_blockchain/static/media/photo1.54a019fc5a9f27a24cdc.png",
     "static/media/photo2.png": "/course_blockchain/static/media/photo2.242d47eac2f0cb2cc7f2.png",
@@ -9,11 +9,11 @@
     "static/media/logo.svg": "/course_blockchain/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/course_blockchain/index.html",
     "main.3ff36111.css.map": "/course_blockchain/static/css/main.3ff36111.css.map",
-    "main.a8aac4c8.js.map": "/course_blockchain/static/js/main.a8aac4c8.js.map",
+    "main.a03806d2.js.map": "/course_blockchain/static/js/main.a03806d2.js.map",
     "787.ba3f3c60.chunk.js.map": "/course_blockchain/static/js/787.ba3f3c60.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3ff36111.css",
-    "static/js/main.a8aac4c8.js"
+    "static/js/main.a03806d2.js"
   ]
 }
