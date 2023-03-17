@@ -15,7 +15,7 @@ function Register() {
   let userCheckPasswordRef = useRef("");
   let userBlockChainaddressRef = useRef("");
 
-  let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+  // let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 
 
   async function submit() {
