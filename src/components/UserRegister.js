@@ -96,10 +96,10 @@ function Register() {
             <Form.Control type="text" ref={userCheckPasswordRef} placeholder="請輸入密碼" />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          {/* <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>請輸入錢包位址</Form.Label>
             <Form.Control type="text" ref={userBlockChainaddressRef} placeholder="請輸入錢包位址" />
-          </Form.Group>
+          </Form.Group> */}
         </div>
 
         <div>

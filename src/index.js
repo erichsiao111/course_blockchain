@@ -7,6 +7,7 @@ import App from './App';
 import Home from './components/Home';
 import UserRegister from './components/UserRegister';
 import reportWebVitals from './reportWebVitals';
+import MetaMask from './components/Container';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,7 +17,7 @@ root.render(
         <Route path="/" element={<App />}> 
           <Route index element={<Home />} />
           <Route path="/UserRegister" element={<UserRegister />} />
-
+          <Route path="/MetaMask" element={<MetaMask />} />
         </Route>
     </Routes>
   </BrowserRouter>
