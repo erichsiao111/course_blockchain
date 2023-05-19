@@ -15,9 +15,12 @@ function GroupCard() {
   const [show, setShow] = useState(false);
   let login = localStorage.getItem('login');
 
-  const payment1 = '0x16555B3f5e2d84DD6Be86480067300Aef17eC753';
-  const payment2 = '0x1C59f979e11332Ef14fe6f1C4DB5eCA96c431534';
-  const payment3 = '0x4bbD0f712a1d8A983c19ceA38De06cE5c084B410';
+  // const payment1 = '0x16555B3f5e2d84DD6Be86480067300Aef17eC753';
+  // const payment2 = '0x1C59f979e11332Ef14fe6f1C4DB5eCA96c431534';
+  // const payment3 = '0x4bbD0f712a1d8A983c19ceA38De06cE5c084B410';
+  const payment1 = '0xf01dc6F318a811FEEA47a8a9B9Ba5964D383cf77';
+  const payment2 = '0xf7869d30640a80838740586A2c5E36582fdF95f7';
+  const payment3 = '0xC8Cc1Cf028c5f2AC42EbCA93D17EC328Dae2B8a1';
 
   const handlePageChange = (paymentId) => {
     if(paymentId === 1){
