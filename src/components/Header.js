@@ -12,29 +12,47 @@ function Header_List() {
   const navigate = useNavigate();
 
   // 登入
-  const [haveMetamask, sethaveMetamask] = useState(true);
   const [accountAddress, setAccountAddress] = useState('');
   const [accountBalance, setAccountBalance] = useState('');
   const [isConnected, setIsConnected] = useState(false);
   const { ethereum } = window;
   const provider = new ethers.providers.Web3Provider(window.ethereum);
+  let login = localStorage.getItem('login');
 
   useEffect(() => {
-    const { ethereum } = window;
-    const checkMetamaskAvailability = async () => {
-      if (!ethereum) {
-        sethaveMetamask(false);
+    if(login === 'true'){
+      setIsConnected(true)
+      connectWallet();
+    }else{
+      setIsConnected(false)
+    }
+  },[])
+
+  useEffect(() => {
+    async function enableMetamask(){
+      try {
+          await window.ethereum.enable();
+          if(isConnected && login === 'true'){
+            connectWallet()
+          }
+      } catch (error) {
+        console.error('Failed to connect Metamask:', error);
       }
-      sethaveMetamask(true);
     };
-    checkMetamaskAvailability();
+
+    enableMetamask();
+    return () => {};
   }, []);
 
-  const connectWallet = async () => {
+
+  function handleLogoutClick(){
+    localStorage.setItem('login', JSON.stringify('false'));
+    setIsConnected(false)
+  };
+
+  async function connectWallet(){
     try {
-      if (!ethereum) {
-        sethaveMetamask(false);
-      }
+      if (ethereum) {
       const accounts = await ethereum.request({
         method: 'eth_requestAccounts',
       });
@@ -43,36 +61,31 @@ function Header_List() {
       setAccountAddress(accounts[0]);
       setAccountBalance(bal);
       setIsConnected(true);
+      localStorage.setItem('login', JSON.stringify(true));
+    }
     } catch (error) {
       setIsConnected(false);
     }
   };
 
 
-  function Disconnect(){
-    setAccountAddress('')
-    setAccountBalance('')
-    setIsConnected(false)
-  }
-
   function header_login(){
     return (
       <Nav>
-        {isConnected? 
-        (
-          <NavDropdown title="我的錢包" id="collasible-nav-dropdown">
-          <NavDropdown.Item>錢包位置：{accountAddress.slice(0, 5)}...{accountAddress.slice(37, 42)}</NavDropdown.Item>   
-          <NavDropdown.Item>餘額：${accountBalance}</NavDropdown.Item>   
-          <NavDropdown.Item onClick={() => navigate('/Transaction')}>交易紀錄</NavDropdown.Item>   
-          <NavDropdown.Item onClick={() => Disconnect()}>
-            登出
-          </NavDropdown.Item>
-          </NavDropdown>
-          ) : (
-          <Nav.Link onClick={connectWallet}>
-            登入
-          </Nav.Link>
-        )}
+        {isConnected ? (
+            <NavDropdown title="我的錢包" id="collasible-nav-dropdown">
+            <NavDropdown.Item>錢包位置：{accountAddress.slice(0, 5)}...{accountAddress.slice(37, 42)}</NavDropdown.Item>   
+            <NavDropdown.Item>餘額：${accountBalance}</NavDropdown.Item>   
+            <NavDropdown.Item onClick={() => navigate('/Transaction')}>交易紀錄</NavDropdown.Item>   
+            <NavDropdown.Item onClick={() => {handleLogoutClick()}}>
+              登出
+            </NavDropdown.Item>
+            </NavDropdown>
+            ) : (
+            <Nav.Link onClick={() => connectWallet()}>
+              登入
+            </Nav.Link>
+          )}
       </Nav>
     )
   }
@@ -85,7 +98,6 @@ function Header_List() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link >募捐介紹</Nav.Link>
-              {/* <Nav.Link >我要捐款</Nav.Link> */}
             </Nav>
           {header_login()}
           </Navbar.Collapse>

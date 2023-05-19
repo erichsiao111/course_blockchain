@@ -1,30 +1,32 @@
 import React , {useState, useEffect}from 'react';
 import { ethers } from "ethers";
+import { useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 
 
 async function startPayment({setError, setTxs, ether, addr}){
-    try {
-        if (!window.ethereum)
-        throw new Error("No crypto wallet found. Please install it.");
-    
-        await window.ethereum.send("eth_requestAccounts");
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const signer = provider.getSigner();
-        ethers.utils.getAddress(addr);
-        const tx = await signer.sendTransaction({
-          to: addr,
-          value: ethers.utils.parseEther(ether)
-        });
-        setTxs([tx]);
-      } catch (err) {
-        setError(err.message);
-      }
+  try {
+      if (!window.ethereum)
+      throw new Error("No crypto wallet found. Please install it.");
+  
+      await window.ethereum.send("eth_requestAccounts");
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      ethers.utils.getAddress(addr);
+      const tx = await signer.sendTransaction({
+        to: addr,
+        value: ethers.utils.parseEther(ether)
+      });
+      setTxs([tx]);
+    } catch (err) {
+      setError(err.message);
+    }
 }
   
 function Donate() {
     const location = useLocation();
     const locationState = location.state;
+    const navigate = useNavigate();
 
     const [error, setError] = useState();
     const [txs, setTxs] = useState([]);
@@ -53,19 +55,22 @@ function Donate() {
     }
 
     function TxList() {
-        if (txs.length === 0) return null;
-        return txs.map((item,index) => {
-            return(
-            <div key={item} className="alert alert-info mt-5">
-                <div className="flex-1">
-                  <label>{item.hash}</label>
-                </div>
-            </div>
-            )
-        })
-    }
+        function success(){
+          setTimeout(() => {
+            navigate('/');
+          }, 3000);
+        }
 
-           
+      if (txs.length === 0) return null;
+      else{
+        success()
+        return(
+          <div className='w-full mx-0 my-auto'>
+            <p className='text-xl text-center my-4'>捐贈成功🎉 自動跳轉中···</p>
+          </div>
+        )
+      }
+    }
   
     return (
       <form className="m-4" onSubmit={handleSubmit}>
