@@ -59,6 +59,7 @@ function Transaction() {
     </div>
     </div>
   );
+
 };
 
 export default Transaction;

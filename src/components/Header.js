@@ -20,7 +20,7 @@ function Header_List() {
   let login = localStorage.getItem('login');
 
   useEffect(() => {
-    if(login === 'true'){
+    if(login === '0'){
       setIsConnected(true)
       connectWallet();
     }else{
@@ -32,7 +32,7 @@ function Header_List() {
     async function enableMetamask(){
       try {
           await window.ethereum.enable();
-          if(isConnected && login === 'true'){
+          if(isConnected && login === '0'){
             connectWallet()
           }
       } catch (error) {
@@ -46,7 +46,7 @@ function Header_List() {
 
 
   function handleLogoutClick(){
-    localStorage.setItem('login', JSON.stringify('false'));
+    localStorage.setItem('login', JSON.stringify(1));
     setIsConnected(false)
   };
 
@@ -77,12 +77,13 @@ function Header_List() {
             <NavDropdown.Item>錢包位置：{accountAddress.slice(0, 5)}...{accountAddress.slice(37, 42)}</NavDropdown.Item>   
             <NavDropdown.Item>餘額：${accountBalance}</NavDropdown.Item>   
             <NavDropdown.Item onClick={() => navigate('/Transaction')}>交易紀錄</NavDropdown.Item>   
-            <NavDropdown.Item onClick={() => {handleLogoutClick()}}>
+            <NavDropdown.Item onClick={() => {handleLogoutClick();navigate('/')}}>
               登出
             </NavDropdown.Item>
             </NavDropdown>
             ) : (
-            <Nav.Link onClick={() => connectWallet()}>
+            <Nav.Link onClick={
+              () => {connectWallet();}}>
               登入
             </Nav.Link>
           )}
@@ -93,7 +94,7 @@ function Header_List() {
     <div> 
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand onClick={()=>{navigate('/')}}>公義募捐平台</Navbar.Brand>
+          <Navbar.Brand className='cursor-pointer' onClick={()=>{navigate('/')}}>公義募捐平台</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
