@@ -16,8 +16,6 @@ async function startPayment({setError, setTxs, ether, addr}){
           to: addr,
           value: ethers.utils.parseEther(ether)
         });
-        console.log({ ether, addr });
-        console.log("tx", tx);
         setTxs([tx]);
       } catch (err) {
         setError(err.message);
@@ -97,7 +95,7 @@ function Donate() {
               </div>
             </div>
           </main>
-          <footer className="p-4" style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+          <footer className="p-4" style={{display:'block',justifyContent:'center',alignItems:'center'}}>
             <button
               type="submit"
               className="btn btn-primary submit-button focus:ring focus:outline-none w-full"

@@ -48,6 +48,7 @@ function Header_List() {
     }
   };
 
+
   function Disconnect(){
     setAccountAddress('')
     setAccountBalance('')
@@ -62,7 +63,7 @@ function Header_List() {
           <NavDropdown title="我的錢包" id="collasible-nav-dropdown">
           <NavDropdown.Item>錢包位置：{accountAddress.slice(0, 5)}...{accountAddress.slice(37, 42)}</NavDropdown.Item>   
           <NavDropdown.Item>餘額：${accountBalance}</NavDropdown.Item>   
-          <NavDropdown.Item>交易紀錄</NavDropdown.Item>   
+          <NavDropdown.Item onClick={() => navigate('/Transaction')}>交易紀錄</NavDropdown.Item>   
           <NavDropdown.Item onClick={() => Disconnect()}>
             登出
           </NavDropdown.Item>

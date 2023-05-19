@@ -9,9 +9,9 @@ import photo2 from '../img/photo2.png';
 import photo3 from '../img/photo3.png';
 function GroupCard() {
   const navigate = useNavigate();
-  const payment1 = '0x65c1ffca7925AEe7E4f1F931D1B01fA3916Bae1b';
-  const payment2 = '0x8BFDfc4CbE74c014d1956eE50CD80A04e35E6603';
-  const payment3 = '0x7F7E17A0367D608a9A07Ed0911DF592582fB7b3E';
+  const payment1 = '0x16555B3f5e2d84DD6Be86480067300Aef17eC753';
+  const payment2 = '0x1C59f979e11332Ef14fe6f1C4DB5eCA96c431534';
+  const payment3 = '0x4bbD0f712a1d8A983c19ceA38De06cE5c084B410';
 
   const handlePageChange = (paymentId) => {
     if(paymentId === 1){

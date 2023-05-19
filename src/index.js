@@ -7,7 +7,8 @@ import App from './App';
 import Home from './components/Home';
 import UserRegister from './components/UserRegister';
 import reportWebVitals from './reportWebVitals';
-import Donate from './components/Donate'
+import Donate from './components/Donate';
+import Transaction from './components/Transaction'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +19,7 @@ root.render(
           <Route index element={<Home />} />
           <Route path="/UserRegister" element={<UserRegister />} />
           <Route path="/Donate" element={<Donate />} />
+          <Route path="/Transaction" element={<Transaction />} />
         </Route>
     </Routes>
   </BrowserRouter>
