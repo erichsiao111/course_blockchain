@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 async function startPayment({setError, setTxs, ether, addr}){
     try {
         if (!window.ethereum)
-          throw new Error("No crypto wallet found. Please install it.");
+        throw new Error("No crypto wallet found. Please install it.");
     
         await window.ethereum.send("eth_requestAccounts");
         const provider = new ethers.providers.Web3Provider(window.ethereum);

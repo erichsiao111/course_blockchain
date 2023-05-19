@@ -26,8 +26,8 @@ function GroupCard() {
   return (
     <CardGroup>
 
-      <Card>
-        <Card.Img variant="top" src= {photo1} style={{ height: "500px" }} />
+      <Card style={{width:'30%'}}>
+        <Card.Img src= {photo1} className='w-[300px]' alt='' />
         <Card.Body>
           <Card.Title>公益機構Ａ</Card.Title>
           <Card.Text>請大家發會愛心多捐款</Card.Text>
@@ -38,8 +38,8 @@ function GroupCard() {
         </Card.Footer>
       </Card>
 
-      <Card>
-        <Card.Img variant="top" src= {photo2} style={{ height: "500px" }} />
+      <Card style={{width:'30%'}}>
+        <Card.Img src= {photo2} className='w-[300px]' alt='' />
         <Card.Body>
           <Card.Title>公益機構Ｂ</Card.Title>
           <Card.Text>請大家發會愛心多捐款</Card.Text>
@@ -50,8 +50,8 @@ function GroupCard() {
         </Card.Footer>
       </Card>
 
-      <Card>
-        <Card.Img variant="top" src= {photo3} style={{ height: "500px" }} />
+      <Card style={{width:'30%'}}>
+        <Card.Img src= {photo3} className='w-[250px]' alt='' />
         <Card.Body>
           <Card.Title>公益機構Ｃ</Card.Title>
           <Card.Text>請大家發會愛心多捐款</Card.Text>
